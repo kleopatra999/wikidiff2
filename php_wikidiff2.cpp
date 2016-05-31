@@ -97,7 +97,7 @@ PHP_FUNCTION(wikidiff2_do_diff)
 		Wikidiff2::String text1String(text1, text1_len);
 		Wikidiff2::String text2String(text2, text2_len);
 		const Wikidiff2::String & ret = wikidiff2.execute(text1String, text2String, numContextLines);
-		RETURN_STRINGL( const_cast<char*>(ret.data()), ret.size(), 1);
+		RETURN_STRINGL( const_cast<char*>(ret.data()), ret.size());
 	} catch (std::bad_alloc &e) {
 		zend_error(E_WARNING, "Out of memory in wikidiff2_do_diff().");
 	} catch (...) {
@@ -131,7 +131,7 @@ PHP_FUNCTION(wikidiff2_inline_diff)
 		Wikidiff2::String text1String(text1, text1_len);
 		Wikidiff2::String text2String(text2, text2_len);
 		const Wikidiff2::String& ret = wikidiff2.execute(text1String, text2String, numContextLines);
-		RETURN_STRINGL( const_cast<char*>(ret.data()), ret.size(), 1);
+		RETURN_STRINGL( const_cast<char*>(ret.data()), ret.size());
 	} catch (std::bad_alloc &e) {
 		zend_error(E_WARNING, "Out of memory in wikidiff2_inline_diff().");
 	} catch (...) {
